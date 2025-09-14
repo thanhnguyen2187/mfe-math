@@ -1,3 +1,5 @@
+#set math.equation(numbering: "1.")
+
 = 05 Exercises
 
 #underline[Exercise 1]
@@ -50,6 +52,8 @@ $
 
   Which means $f_2(x)$ is an odd function.
 ][
+  We have
+
   $
     g_1(-x) &= f((-x)^2) \
             &= f(x^2) \
@@ -65,8 +69,12 @@ $
             &= -g_2(x) \
   $
 
-  Which means $g_2(x)$ is an odd function.
+  Which means $g_2(x)$ is an odd function. \
+  \
+  // doing some hack for page break
 ][
+  Doing some transformation
+
   $
     h(x)  &= x^i f(x^j) \
     h(-x) &= (-x)^i f((-x)^j) \
@@ -108,13 +116,13 @@ Let
 
   $
     T(n, 2, x) = x d/(d x) (T(n, 1, x))
-  $
+  $ <e2-eq1>
 
   And formula 
 
   $
     T(n, 1, x) = (x - (n + 1) x^(n + 1) + n x^(n + 2)) / (1 - x)^2
-  $
+  $ <e2-eq2>
 
   for $T(n, 1, x)$, to show that
 
@@ -128,15 +136,47 @@ Let
       ) / ( (1 - x) ^ 3 )
   $
 ][
-  Show that
-  - The function $g_1: bb(R) -> bb(R)$ given by $g_1(x) = f(x^2)$ is an
-    even function
-  - The function $g_2: bb(R) -> bb(R)$ given by $g_2(x) = f(x^3)$ is an odd
-    function
+  TBA
 ][
-  Let $h: bb(R) -> bb(R)$ be defined as $h(x) = x^i f(x^j)$, where $i$ and $j$
-  are positive integers. When is $h(x)$ an odd function?
+  TBA
 ]
 
 #underline[Answer]
 
+#enum(numbering: "i)")[
+  Replacing @e2-eq2 into @e2-eq1, we have:
+
+  $
+    T(n, 2, x) &= x d / (d x) (x - (n + 1) x^(n + 1) + n x^(n + 2)) / (1 - x)^2 \
+               &= (x^2 - (n + 1) x^(n + 2) + n x^(n + 3)) / (1 - x)^2 d / (d x) 
+  $ <e2-eq3>
+
+  Using the quotient rule
+
+  $
+    [u(x) / v(x)] d / (d x) = (u'(x) v(x) - u(x) v'(x)) / [v(x)]^2
+  $
+
+  With
+
+  $
+    u(x)  &= (& x^2 - & (n + 1) x^(n + 2)         & + & n x^(n + 3)) \
+    u'(x) &= (& 2x -  & (n + 1) (n + 2) x^(n + 1) & + & n (n + 3) x^(n + 2))
+  $
+
+  and
+
+  $
+    v(x)   &= (1 - x)^2 \
+    v'(x)  &= 2 (-1) (1 - x) = -2 (1 - x) \
+    v^2(x) &= (1 - x)^4
+  $
+
+  and
+
+  $
+    u'(x) v(x) &= ((2x -  (n + 1) (n + 2) x^(n + 1) + n (n + 3) x^(n + 2)) (1 - x)^2) \
+    u(x) v'(x) &= (x^2 - (n + 1) x^(n + 2) + n x^(n + 3)) (-2 (1 - x))
+               &= (x^2 - (n + 1) x^(n + 2) + n x^(n + 3)) (-2 (1 - x))
+  $
+]
