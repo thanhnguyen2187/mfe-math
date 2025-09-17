@@ -1,4 +1,4 @@
-#set math.equation(numbering: "1.")
+// #set math.equation(numbering: "1.")
 
 = 05 Exercises
 
@@ -116,13 +116,13 @@ Let
 
   $
     T(n, 2, x) = x d/(d x) (T(n, 1, x))
-  $ <e2-eq1>
+  $ // <e2-eq1>
 
   And formula 
 
   $
     T(n, 1, x) = (x - (n + 1) x^(n + 1) + n x^(n + 2)) / (1 - x)^2
-  $ <e2-eq2>
+  $ // <e2-eq2>
 
   for $T(n, 1, x)$, to show that
 
@@ -139,15 +139,26 @@ Let
   Note that $S(n, 2) = T(n, 2, 1)$. Use l'Hopital's rule to evaluate $T(n, 2,
   1)$, and conclude that $S(n, 2) = (n(n + 1)(2n + 1))/6$
 ][
-  TBA
-]
+  Compute $T(n, 3, x) = sum_(k = 1)^n k^3 x^k$ using formula
 
-#pagebreak()
+  $
+    T(n, j + 1, x) = x d / (d x) (T(n, j, x)) quad forall j >= 0
+  $
+
+  for $j = 2$, i.e,
+
+  $
+    T(n, 3, x) = x d/(d x) (T(n, 2, x))
+  $
+][
+  Note that $S(n, 3) = T(n, 3, 1)$. Use l'Hopital's rule to evaluate $T(n, 3,
+  1)$ and conclude that $S(n, 3) = ((n(n + 1)) / 2)^2$.
+]
 
 #underline[Answer]
 
 #enum(numbering: "i)")[
-  Replacing @e2-eq2 into @e2-eq1, we have:
+  // Replacing @e2-eq2 into @e2-eq1, we have:
 
   $
     T(n, 2, x) &= x d / (d x) (x - (n + 1) x^(n + 1) + n x^(n + 2)) / (1 - x)^2 \
@@ -245,4 +256,162 @@ Let
       n(n + 1)(2n + 1)
     ) / 6 \
   $
+][
+  $
+    T(n, 3, x) &= x d/(d x) thin (T(n, 2, x)) \
+               &= x d/(d x) [(x + x^2 - (n + 1)^2 x^(n + 1) + (2 n^2 + 2 n - 1) x^(n + 2) - n^2 x^(n + 3)) / (1 - x)^3]
+  $
+
+  Using the quotient rule
+
+  $
+    [u(x) / v(x)] d / (d x) = (u'(x) v(x) - u(x) v'(x)) / [v(x)]^2
+  $
+
+  With
+
+  $
+    u(x)     &= x + x^2 - (n + 1)^2 x^(n + 1) + (2 n^2 + 2 n - 1) x^(n + 2) - n^2 x^(n + 3) \
+    u'(x)    &= 1 + 2x - (n + 1)^3 x^n + (2n^2 + 2n - 1)(n + 2) x^(n + 1) - (n + 3) n^2 x^(n + 2) \
+    v(x)     &= (1 - x)^3 \
+    v'(x)    &= -3 (1 - x)^2 \
+    [v(x)]^2 &= (1 - x)^6 \
+    \
+    u'(x) v(x) &= (1 + 2x - (n + 1)^3 x^n + (2n^2 + 2n - 1)(n + 2) x^(n + 1) - (n + 3) n^2 x^(n + 2)) thin (1 - x)^3 \
+               &= (1 - x)(1 + 2x - (n + 1)^3 x^n + (n + 2)(2n^2 + 2n - 1) x^(n + 1) - (n + 3) n^2 x^(n + 2)) thin (1 - x)^2 \
+    u(x) v'(x) &= (x + x^2 - (n + 1)^2 x^(n + 1) + (2 n^2 + 2 n - 1) x^(n + 2) - n^2 x^(n + 3)) times -3 (1 - x)^2 \
+               &= (-3x - 3x^2 + 3(n + 1)^2 x^(n + 1) - 3(2 n^2 + 2 n - 1) x^(n + 2) + 3n^2 x^(n + 3)) thin (1 - x)^2 \
+  $
+
+  Let $g(x) = (1 + 2x - (n + 1)^3 x^n + (n + 2)(2n^2 + 2n - 1) x^(n + 1) - (n +
+  3) n^2 x^(n + 2))$, which means $u'(x) v(x) = (1 - x) g(x) thin (1 - x)^2$.
+  Here is the calculation of $(1 - x) g(x)$ putting onto a grid:
+
+  #table(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto),
+    [],                    [$1$], [$x$], [$x^2$], [$x^n$],        [$x^(n + 1)$],              [$x^(n + 2)$],              [$x^(n + 3)$],
+    [$g(x)$],              [$1$], [$2$], [],      [$-(n + 1)^3$], [$(n + 2)(2n^2 + 2n - 1)$], [$-(n + 3) n^2$],           [],
+    [$x g(x)$],            [],    [$1$], [$2$],   [],             [$-(n + 1)^3$],             [$(n + 2)(2n^2 + 2n - 1)$], [$-(n + 3) n^2$],
+    [$(1 - x) thin g(x)$], [$1$], [$1$], [$-2$],  [$-(n + 1)^3$], [$...$],                    [$...$],                    [$n^3 + 3n^2$],
+  )
+
+  Because
+
+  $
+    (n + 2)(2n^2 + 2n - 1) - [-(n + 1)^3]
+      &= (2n^3 + 4n^2 + 2n^2 + 4n - n - 2) \
+      &quad + med (n^3 + 3n^2 + 3n + 1) \
+      &= (2n^3 + 6n^2 + 3n - 2) \
+      &quad + med (n^3 + 3n^2 + 3n + 1) \
+      &= 3n^3 + 9n^2 + 6n - 1
+  $
+
+  and
+
+  $
+    -(n + 3) n^2 - (n + 2)(2n^2 + 2n - 1)
+      &= -(n^3 + 3n^2) \
+      &quad - thick (2n^3 + 6n^2 + 3n - 2) \
+      &= -3n^3 - 9n^2 - 3n + 2 \
+  $
+
+  We have
+
+  $ (1 - x) thin g(x) &= 1 + x - 2x^2 - (n + 1)^3 x^n + (3n^3 + 9n^2 + 6n - 1) x^(n + 1) \
+      &quad + thick (-3n^3 - 9n^2 - 3n + 2) x^(n + 2) + (n^3 + 3n^2) x^(n + 3) \
+    u'(x) v(x) &= (1 - x) thin g(x) thin (1 - x)^2 \
+               &= [1 + x - 2x^2 - (n + 1)^3 x^n + (3n^3 + 9n^2 + 6n - 1) x^(n + 1) \
+               &quad + thick (-3n^3 - 9n^2 - 3n + 2) x^(n + 2) + (n^3 + 3n^2) x^(n + 3)] thin (1 - x)^2
+  $
+
+  Let
+
+  $
+    h_1(x) &= [1 + x - 2x^2 - (n + 1)^3 x^n + (3n^3 + 9n^2 + 6n - 1) x^(n + 1) \
+           &quad + thick (-3n^3 - 9n^2 - 3n + 2) x^(n + 2) + (n^3 + 3n^2) x^(n + 3)] \
+    u'(x) v(x) &= h_1(x) thin (1 - x)^2 \
+    h_2(x) &= -3x - 3x^2 + 3(n + 1)^2 x^(n + 1) \
+           &quad - thick 3(2 n^2 + 2 n - 1) x^(n + 2) + 3n^2 x^(n + 3) \
+    u(x) v'(x) &= h_2(x) thin (1 - x)^2 \
+    \
+    u'(x) v(x) - u(x) v'(x) &= (h_1(x) - h_2(x)) thin (1 - x)^2
+  $
+
+  The calculation can be put into a grid like this:
+
+  #table(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto),
+    [],                  [$1$], [$x$],  [$x^2$], [$x^n$],        [$x^(n + 1)$],            [$x^(n + 2)$],             [$x^(n + 3)$],
+    [$h_1(x)$],          [$1$], [$1$],  [$-2$],  [$-(n + 1)^3$], [$3n^3 + 9n^2 + 6n - 1$], [$-3n^3 - 9n^2 - 3n + 2$], [$n^3 + 3n^2$],
+    [$h_2(x)$],          [],    [$-3$], [$-3$],  [],             [$3(n + 1)^2$],           [$-3(2n^2 + 2n - 1)$],     [$3n^2$],
+    [$h_1(x) - h_2(x)$], [$1$], [$4$],  [$1$],   [$-(n + 1)^3$], [$...$],                  [$...$],                   [$n^3$],
+  )
+
+  Because
+
+  $
+    (3n^3 + 9n^2 + 6n - 1) - 3(n + 1)^2
+      &= (3n^3 + 9n^2 + 6n - 1) - (3n^2 + 6n + 3) \
+      &= 3n^3 + 6n^2 - 4 \
+    \
+    (-3n^3 - 9n^2 - 3n + 2) - (-3)(2n^2 + 2n - 1)
+      &= (-3n^3 - 9n^2 - 3n + 2) + (6n^2 + 6n - 3) \
+      &= -3n^3 - 3n^2 + 3n - 1 \
+  $
+
+  Then
+
+  $
+    u'(x) v(x) - u(x) v'(x) &=
+      [1 + 4x + x^2 - (n + 1)^3 x^n + (3n^3 + 6n^2 - 4) x^(n + 1) + \
+      &quad (-3n^3 - 3n^2 + 3n - 1) x^(n + 2) + n^3 x^(n + 3)] thin (1 - x)^2 \
+    (u'(x) v(x) - u(x) v'(x)) / [v(x)]^2 &=
+      [1 + 4x + x^2 - (n + 1)^3 x^n + (3n^3 + 6n^2 - 4) x^(n + 1) + \
+      (-3n^3 - 3n^2 + 3n - 1) x^(n + 2) + n^3 x^(n + 3)] / (1 - x)^4 \
+    T(n, 3, x) &=
+      x [1 + 4x + x^2 - (n + 1)^3 x^n + (3n^3 + 6n^2 - 4) x^(n + 1) + \
+      (-3n^3 - 3n^2 + 3n - 1) x^(n + 2) + n^3 x^(n + 3)] / (1 - x)^4 \
+      &= [x + 4x^2 + x^3 - (n + 1)^3 x^(n + 1) + (3n^3 + 6n^2 - 4) x^(n + 2) + \
+      (-3n^3 - 3n^2 + 3n - 1) x^(n + 3) + n^3 x^(n + 4)] / (1 - x)^4 \
+  $
+][
+  $
+    T(n, 3, 1)
+      &= [1 + 4 + 1 - (n + 1)^3 + (3n^3 + 6n^2 - 4) + (-3n^3 - 3n^2 + 3n - 1) + n^3] / 0 \
+      &= [6 - (1 + 3n + 3n^2 + n^3) + (-4 + 6n^2 + 3n^3) + (-1 + 3n - 3n^2 - 3n^3) + n^3] / 0 \
+  $
+
+  Simplifying the numerator using a grid we have:
+
+  \
+
+  #table(
+    columns: (auto, auto, auto, auto, auto),
+    [],       [$1$],  [$n$],  [$n^2$], [$n^3$],
+    [],       [$6$],  [],     [],      [],
+    [],       [$-1$], [$-3$], [$-3$],  [$-1$],
+    [],       [$-4$], [],     [$6$],   [$3$],
+    [],       [$-1$], [$3$],  [$-3$],  [$-3$],
+    [],       [],     [],     [],      [$1$],
+    [Total], [$0$],  [$0$],  [$0$],   [$0$],
+  )
+
+  Which means the numerator is $0$ and $T(n, 3, 1) = 0/0$. Let
+
+  $
+    f(x) &= [x + 4x^2 + x^3 - (n + 1)^3 x^(n + 1) + (3n^3 + 6n^2 - 4) x^(n + 2) + \
+         &quad (-3n^3 - 3n^2 + 3n - 1) x^(n + 3) + n^3 x^(n + 4)] \
+    g(x) &= (1 - x)^4
+  $
+
+  Derivatives of $f(x)$ and $g(x)$ put onto a grid:
+
+  #table(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    [],      [$1$], [$x$], [$x^2$], [$x^3$], $x^n$,        $x^(n + 1)$,                $x^(n + 2)$,                      $x^(n + 3)$,             $x^(n + 4)$,
+    $f(x)$,  $$,    $1$,   $4$,     $1$,     $$,           $-(n + 1)^3$,               $3n^3 + 6n^2 - 4$,                $-3n^3 - 3n^2 + 3n - 1$, $n^3$,
+    $f'(x)$, $1$,   $8$,   $3$,     $$,      $-(n + 1)^4$, $(n + 2)(3n^3 + 6n^2 - 4)$, $(n + 3)(-3n^3 - 3n^2 + 3n - 1)$, $(n + 4)n^3$,            $$,
+    $f''(x)$, $$,   $8$,   $3$,     $$,      $-(n + 1)^4$, $(n + 2)(3n^3 + 6n^2 - 4)$, $(n + 3)(-3n^3 - 3n^2 + 3n - 1)$, $(n + 4)n^3$,            $$,
+    // $f'(x)$, $$,   $$,   $$,     $$,      $$, $$, $$, $$,            $$,
+  )
 ]
