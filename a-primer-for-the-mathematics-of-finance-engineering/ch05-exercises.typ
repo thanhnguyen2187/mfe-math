@@ -598,14 +598,25 @@ Let
     (f^(4)(1)) / (g^(4)(1)) &= (6(n(n + 1))^2) / 24 \
                             &= (n(n + 1)^2) / 4 \
                             &= ((n(n + 1)) / 2)^2 \
-                            &= 
-  $
-
-  ...
-
-  $
-    n(n + 1) 2n(2n + 3)
-
-    S(n, 1) = ((n(n + 1)) / 2)^2
+    S(n, 3) &= T(n, 3, 1) \
+            &= lim_(x -> 1) (f(1)) / (g(1)) \
+            &= (f^(4)(1)) / (g^(4)(1)) \
+            &= ((n(n + 1)) / 2)^2 quad square
   $
 ]
+
+#underline[Exercise 3]
+
+Compute $S(n, 4) = sum_(k = 1)^n k^4$ using the recursion formula
+
+$
+  S(n, i)
+    = 1 / (i + 1) ((n + i)^(i + 1) - 1 - sum_(j = 0)^(i - 1) vec(i + 1, j)
+      S(n, j)) forall i >= 1
+$
+
+The term $vec(i + 1, j)$ is the binomial coefficient defined as follows:
+
+$
+  vec(i + 1, j) = (i + 1)! / (j! (i + 1 - j)!)
+$
