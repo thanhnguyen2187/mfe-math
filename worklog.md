@@ -7,4 +7,5 @@
 ## 2025-09-22
 
 - Glanced at Chapter 0 Exercise 3.
+- Took a stab at solving it.
 
