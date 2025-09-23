@@ -9,3 +9,8 @@
 - Glanced at Chapter 0 Exercise 3.
 - Took a stab at solving it.
 
+## 2025-09-23
+
+- Took another stab at solving Chapter 0 Exercise 3. Got stuck as was unsure
+  what's the end result.
+
