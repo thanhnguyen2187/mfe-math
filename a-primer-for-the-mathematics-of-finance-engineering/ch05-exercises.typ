@@ -656,20 +656,50 @@ $
     &= (n(n + 1)(6n^3 + 9n^2 + n - 1)) / 30 quad square
 $
 
-Let
+#underline[Exercise 4]
+
+It's easy to see that the sequence $(x_n)_(n >= 1)$ given by $x_n = sum_(k=1)^n
+k^2$ satisfies the recursion
 
 $
-  f(x) &= 6(n + 4)^5 \
-       &= 6(n^5 + 5 n^4 4 + 10 n^3 4^2 + 10 n^2 4^3 + 5 n 4^4 + 4^5) \
-       &= 6(n^5 + 20 n^4 + 160 n^3 + 640 n^2 + 1280 n + 1024) \
-  g(x) &= 6(n + 1) + 5(n(n + 1)(3n^2 + 7n + 5)) \
-       &= 6n + 6 + 5(n^2 + n)(3n^2 + 7n + 5) \
-       &= 6n + 6 + 5((3n^4 + 3n^3) + (7n^3 + 7n^2) + (5n^2 + 5n)) \
-       &= 6n + 6 + 5(3n^4 + 10n^3 + 12n^2 + 5n) \
-       &= 6n + 6 + (15n^4 + 50n^3 + 60n^2 + 25n) \
-       &= 15n^4 + 50n^3 + 60n^2 + 31n + 6 \
+  x_(n+1) = x_n + (n + 1)^2, forall n >= 1
 $
 
-$
-  (n(n + 1)(6n^3 + 9n^2 + n - 1)) / 30
-$
+with $x_1 = 1$
+
+#enum(numbering: "i)")[
+  By substituting $n + 1$ for $n$ in the above formula, obtain that
+
+  $
+    x_(n+2) = x_(n+1) + (n + 2)^2
+  $
+
+  Subtract $x_(n+1)$ from $x_(n+2)$ to find that
+
+  $
+    x_(n+2) = 2x_(n+1) - x_n + 2n + 3 quad forall n >= 1
+  $
+
+  with $x_1 = 1$ and $x_2 = 5$.
+][
+  ...
+][
+  ...
+]
+
+#underline[Answer]
+
+#enum(numbering: "i)")[
+  $
+    x_(n+1) &= x_n + (n + 1)^2 \
+    x_(n+2) &= x_(n+1) + (n + 2)^2 \
+    x_(n+2) - x_(n+1) &= [x_(n+1) + (n + 2)^2] - [x_(n) + (n + 1)^2] \
+    x_(n+2) - x_(n+1) &= x_(n+1) - x_(n) + (n + 2)^2 - (n + 1)^2 \
+    x_(n+2) - x_(n+1) &= x_(n+1) - x_(n) + (n^2 + 4n + 4) - (n^2 + 2n + 1) \
+    x_(n+2) - x_(n+1) &= x_(n+1) - x_(n) + 2n + 3 \
+  $
+][
+  ...
+][
+  ...
+]

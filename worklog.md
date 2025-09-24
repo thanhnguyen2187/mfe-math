@@ -13,4 +13,9 @@
 
 - Took another stab at solving Chapter 0 Exercise 3. Got stuck as was unsure
   what's the end result.
+- Solved Exercise 3.
+
+## 2025-09-24
+
+- Solved Exercise 4 Part i).
 
