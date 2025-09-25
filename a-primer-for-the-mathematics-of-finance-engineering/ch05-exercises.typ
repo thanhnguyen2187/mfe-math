@@ -682,9 +682,45 @@ with $x_1 = 1$
 
   with $x_1 = 1$ and $x_2 = 5$.
 ][
-  ...
+  Similarly, substitute $n + 1$ for $n$ in the above finding and obtain that
+
+  $
+    x_(n+3) = 2x_(n+2) - x_(n+1) + 2(n + 1) + 3
+  $
+
+  Subtract $x_(n+2)$ from $x_(n+3)$ to find that
+
+  $
+    x_(n+3) = 3x_(n+2) - 3x_(n+1) + x_n + 2 quad forall n >= 1
+  $
+
+  with $x_1 = 1$, $x_2 = 5$, and $x_3 = 14$.
 ][
-  ...
+  Use a similar method to prove that the sequence $(x_n)_(n>=0)$ satisfies the
+  linear recursion
+
+  $
+    x_(n+4) - 4x_(n+3) + 6x_(n+2) - 4x_(n+1) + x_n = 0
+  $
+
+  The characteristic polynomial associated to the above recursion function is:
+
+  $
+    P(z) = z^4 - 4z^3 + 6z^2 - 4z + 1 = (z - 1)^4
+  $
+
+  Use the fact that $x_1 = 1$, $x_2 = 5$, $x_3 = 14$, and $x_4 = 30$ to show
+  that
+
+  $
+    x_n = (n(n + 1)(2n + 1)) / 6, quad forall n >= 1
+  $
+
+  and conclude that
+
+  $
+    S(n, 2) = sum_(k=1)^n k^2 = (n(n + 1)(2n + 1)) / 6, quad forall n >= 1
+  $
 ]
 
 #underline[Answer]
@@ -697,9 +733,93 @@ with $x_1 = 1$
     x_(n+2) - x_(n+1) &= x_(n+1) - x_(n) + (n + 2)^2 - (n + 1)^2 \
     x_(n+2) - x_(n+1) &= x_(n+1) - x_(n) + (n^2 + 4n + 4) - (n^2 + 2n + 1) \
     x_(n+2) - x_(n+1) &= x_(n+1) - x_(n) + 2n + 3 \
+    x_(n+2) &= 2 x_(n+1) - x_(n) + 2n + 3 \
   $
 ][
-  ...
+  $
+    x_(n+2) &= 2x_(n+1) - x_(n) + 2n + 3 \
+    x_(n+3) &= 2x_(n+2) - x_(n+1) + 2(n + 1) + 3 \
+    x_(n+3) - x_(n+2)
+      &= [2x_(n+2) - x_(n+1) + 2(n + 1) + 3] - [2x_(n+1) - x_(n) + 2n + 3] \
+      &= 2x_(n+2) + (-1 - 2)x_(n+1) + x_(n) + (2 - 2)n + (2 + 3 - 3) \
+      &= 2x_(n+2) - 3x_(n+1) + x_n + 2 \
+
+    x_(n+3) &= 3x_(n+2) - 3x_(n+1) + x_n + 2 \
+  $
 ][
-  ...
+  $
+    x_(n+3) &= 3x_(n+2) - 3x_(n+1) + x_n + 2 \
+    x_(n+4) &= 3x_(n+3) - 3x_(n+2) + x_(n+1) + 2 \
+    x_(n+4) - x_(n+3)
+      &= [3x_(n+3) - 3x_(n+2) + x_(n+1) + 2] - [3x_(n+2) - 3x_(n+1) + x_n + 2] \
+      &= 3x_(n+3) + (-3 - 3)x_(n+2) + (1 + 3)x_(n+1) - x_n + (2 - 2) \
+      &= 3x_(n+3) - 6x_(n+2) + 4x_(n+1) - x_n \
+
+    x_(n+4) &= 4x_(n+3) - 6x_(n+2) + 4x_(n+1) - x_n \
+    x_(n+4) - 4x_(n+3) + 6x_(n+2) - 4x_(n+1) + x_n &= 0 \
+  $
+
+  The characteristic polynomial is:
+
+  $
+    P(z) = z^4 - 4z^3 + 6z^2 - 4z + 1 = (z - 1)^4
+  $
+
+  Which means the only root of $P(z)$ is $lambda = 1$. The general form of
+  $x_n$:
+
+  $
+    x_n = C_1 + C_2 n + C_3 n^2 + C_4 n^3
+  $
+
+  As
+
+  $
+    x_1 = 1 \
+    x_2 = 5 \
+    x_3 = 14 \
+    x_4 = 30 \
+  $
+
+  We have this linear system:
+
+  $
+    vec(
+      1 & quad 1 & quad 1 & quad 1,
+      1 & quad 2 & quad 4 & quad 8,
+      1 & quad 3 & quad 9 & quad 27,
+      1 & quad 4 & quad 16 & quad 64,
+    )
+    thick
+    vec(
+      C_1,
+      C_2,
+      C_3,
+      C_4,
+    )
+    =
+    vec(
+      1,
+      5,
+      14,
+      30,
+    )
+  $
+
+  Solving the system yields
+
+  $
+    C_1 = 0 \
+    C_2 = 1/6 \
+    C_3 = 1/2 \
+    C_4 = 1/3 \
+  $
+
+  Which means
+
+  $
+    x_n &= C_1 + C_2 n + C_3 n^2 + C_4 n^3 \
+        &= 0 + n/6 + n^2/2 + n^3/3 \
+        &= (n(n + 1)(2n + 1)) / 6 quad square
+  $
 ]

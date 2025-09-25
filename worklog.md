@@ -19,3 +19,9 @@
 
 - Solved Exercise 4 Part i).
 
+## 2025-09-25
+
+- Attempted Exercise 4 Part ii).
+- Solved Exercise 4 Part ii).
+- Solved Exercise 4 Part iii).
+
