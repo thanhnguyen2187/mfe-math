@@ -25,3 +25,7 @@
 - Solved Exercise 4 Part ii).
 - Solved Exercise 4 Part iii).
 
+## 2025-09-26
+
+- Solved Exercise 5.
+

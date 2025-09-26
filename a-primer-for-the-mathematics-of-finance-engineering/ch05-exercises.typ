@@ -823,3 +823,69 @@ with $x_1 = 1$
         &= (n(n + 1)(2n + 1)) / 6 quad square
   $
 ]
+
+#underline[Exercise 5]
+
+Find the general form of the sequence $x(n)_(n>=0)$ satisfiying the linear
+recursion
+
+$
+  x_(n+3) = 2x_(n+1) + x_n, quad forall n >= 0
+$
+
+With $x_0 = 1$, $x_1 = -1$ and $x_2 = 1$
+
+#underline[Answer]
+
+$
+  x_(n+3) = 2x_(n+1) + x_n
+  x_(n+3) - 2x_(n+1) - x_n = 0
+$
+
+The characteristic polynomial is:
+
+$
+  P(z) &= z^3 - 2z - 1 \
+    // &= z(z^2 - 1) - (z + 1)
+    // &= z(z - 1)(z + 1) - (z + 1)
+    &= (z + 1)(z^2 - z - 1) \
+    &= (z + 1)[z - (1 + sqrt(5))/2][z - (1 - sqrt(5))/2] \
+$
+
+Which means the roots of $P(z)$ are:
+
+$
+  lambda_1 = 1 \
+  lambda_2 = (1 + sqrt(5))/2 \
+  lambda_3 = (1 - sqrt(5))/2 \
+$
+
+The general form of $x_n$ is:
+
+$
+  x_n = C_1 lambda_1^n + C_2 lambda_2^n + C_3 lambda_3^n
+$
+
+With $x_0 = 1$, $x_1 = -1$ and $x_2 = 1$:
+
+$
+  1 &= C_1 + C_2 + C_3 \
+  -1 &= C_1 + (1 + sqrt(5))/2 C_2 + (1 - sqrt(5))/2 C_3 \
+  1 &= C_1 + (1 + sqrt(5))^2/4 C_2 + (1 - sqrt(5))^2/4 C_3 \
+    &= C_1 + (3 + sqrt(5))/2 C_2 + (3 - sqrt(5)) / 2 C_3 \
+$
+
+Solving the linear equation system yields:
+
+$
+  C_1 &= -1 \
+  C_2 &= (1 + sqrt(5)) / sqrt(5) \
+  C_3 &= (-1 + sqrt(5)) / sqrt(5) \
+$
+
+Which means the general form of $x_n$ is:
+
+$
+  x_n &= -1 + [(1 + sqrt(5)) / (sqrt(5)) ((1 + sqrt(5)) / 2)^n] + [(-1 + sqrt(5)) / (sqrt(5)) ((1 - sqrt(5)) / 2)^n]
+  quad square
+$
