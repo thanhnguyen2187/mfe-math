@@ -29,3 +29,7 @@
 
 - Solved Exercise 5.
 
+## 2025-09-27
+
+- Solved Exercise 6.
+

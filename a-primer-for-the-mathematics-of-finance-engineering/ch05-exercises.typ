@@ -889,3 +889,84 @@ $
   x_n &= -1 + [(1 + sqrt(5)) / (sqrt(5)) ((1 + sqrt(5)) / 2)^n] + [(-1 + sqrt(5)) / (sqrt(5)) ((1 - sqrt(5)) / 2)^n]
   quad square
 $
+
+#underline[Exercise 6]
+
+The sequence $(x_n)_(n>=0)$ satisfies the recursion
+
+$
+  x_(n+1) = 3x_n + 2, quad forall n >= 0
+$
+
+with $x_0 = 1$.
+
+#enum(numbering: "i)")[
+  Show that the sequence $(x_n)_(n>=0)$ satisfies the linear recursion
+
+  $
+    x_(n+2) = 4x_(n+1) - 3x_n, quad forall n >= 0
+  $
+
+  with $x_0 = 1$ and $x_1 = 5$.
+][
+  Find the general formula for $x_n, n >= 0$.
+]
+
+#underline[Answer]
+
+#enum(numbering: "i)")[
+  Replacing $n+2$ into $x_(n+1)$, we have
+
+  $
+    x_(n+1) &= 3x_n + 2 \
+    x_(n+2) &= 3x_(n+1) + 2 \
+    \
+    x_(n+2) - x_(n+1) &= 3x_(n+1) - 3x_n \
+    x_(n+2) &= 4x_(n+1) - 3x_n \
+  $
+][
+  From the above transformation, we have:
+
+  $
+    x_(n+2) - 4x_(n+1) + 3x_n = 0
+  $
+
+  The characteristic polynomial is:
+
+  $
+    P(z) = z^2 - 4z + 3 = (z - 3)(z - 1)
+  $
+
+  Which means the roots of $P(z)$ are:
+
+  $
+    lambda_1 = 3 \
+    lambda_2 = 1 \
+  $
+
+  The general form of $x_n$ is:
+
+  $
+    x_n = C_1 lambda_1^n + C_2 lambda_2^n
+  $
+
+  With $x_0 = 1$ and $x_1 = 5$, we have this system of equations:
+
+  $
+    1 = C_1 + C_2 \
+    5 = 3C_1 + C_2 \
+  $
+
+  Solving it yields:
+
+  $
+    C_1 = 2 \
+    C_2 = -1 \
+  $
+
+  Then the general form of $x_n$ is:
+
+  $
+    x_n = 2 times 3^n - 1
+  $
+]
