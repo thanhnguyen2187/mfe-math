@@ -33,3 +33,7 @@
 
 - Solved Exercise 6.
 
+## 2025-09-29
+
+- Attempted Exercise 7.
+

@@ -970,3 +970,127 @@ with $x_0 = 1$.
     x_n = 2 times 3^n - 1
   $
 ]
+
+#underline[Exercise 7]
+
+The sequence $(x_n)_(n>=0)$ satisfies the recursion
+
+$
+  x_(n+1) = 3x_n + n + 2, quad forall n >= 0
+$
+
+with $x_0 = 1$.
+
+#enum(numbering: "i)")[
+  Show that the sequence $(x_n)_(n>=0)$ satisfies the linear recursion
+
+  $
+    x_(n+3) = 5x_(n+2) - 7x_(n+1) + 3x_n, quad forall n >= 0
+  $
+
+  With $x_0 = 1$, $x_1 = 5$, and $x_2 = 18$.
+][
+  Find the general formula for $x_n$, $n >= 0$.
+]
+
+#underline[Answer]
+
+#enum(numbering: "i)")[
+  $
+    x_(n+1) &= 3x_n + n + 2 \
+    x_(n+2) &= 3x_(n+1) + (n + 1) + 2 \
+    x_(n+2) - x_(n+1) &= [3x_(n+1) + (n + 1) + 2] - [3x_n + n + 2] \
+      &= 3x_(n + 1) - 3x_n + (1 - 1)n + (1 + 2 - 2) \
+      &= 3x_(n + 1) - 3x_n + 1 \
+    x_(n+2) &= 4x_(n + 1) - 3x_n + 1 \
+    x_(n+3) &= 4x_(n + 2) - 3x_(n + 1) + 1 \
+    x_(n+3) - x_(n+2)
+      &= [4x_(n + 2) - 3x_(n + 1) + 1] - [4x_(n + 1) - 3x_n + 1] \
+      &= 4x_(n+2) + (-3 - 4)x_(n+1) + 3x_n + (1 - 1) \
+      &= 4x_(n+2) - 7x_(n+1) + 3x_n \
+    x_(n+3) &= 5x_(n+2) - 7x_(n+1) + 3x_n quad qed \
+  $
+][
+  From the above transformation, we have:
+
+  $
+    x_(n+3) - 5x_(n+2) + 7x_(n+1) - 3x_n = 0
+  $
+
+  The characteristic polynomial is:
+
+  $
+    P(z) = z^3 - 5z^2 + 7z - 3 = (z - 3)(z - 1)^2
+  $
+
+  Which means the roots of $P(z)$ are:
+
+  $
+    lambda_1 = 3 \
+    lambda_2 = 1 \
+  $
+
+  The general form of $x_n$ is:
+
+  $
+    x_n = C_1 lambda_1^n + C_2 + C_3 n
+  $
+
+  With $x_0 = 1$, $x_1 = 5$, and $x_2 = 18$, we have this system of equations:
+
+  $
+    1 = C_1 + C_2 \
+    5 = 3C_1 + C_2 + C_3 \
+    18 = 9C_1 + C_2 + 2 C_3 \
+  $
+
+  Solving it yields:
+
+  $
+    C_1 = 9/4 \
+    C_2 = -5/4 \
+    C_3 = -1/2 \
+  $
+
+  Then the general form of $x_n$ is:
+
+  $
+    x_n = 9/4 times 3^n - 5/4 - n/2
+  $
+]
+
+#underline[Exercise 8]
+
+Let $P(z) = sum_(i=0)^k a_i z^i$ be the characteristic polynomial corresponding
+to the linear recursion
+
+$
+  sum_(i=0)^(k) a_i x_(n+i) = 0, quad forall n >= 0
+$
+
+Assume that $lambda$ is a root of multiplicity of $2$ of $P(z)$. Show that the
+sequence $(y_n)_(n>=0)$ is given by
+
+$
+  y_n = C n lambda^n, quad n >= 0
+$
+
+Where $C$ is an arbitrary constant, satistifes the recursion above.
+
+Hint: Show that
+
+$
+  sum_(i=1)^k a_i y_(n+i) = C_n lambda^n P(lambda) + C lambda^(n+1) P'(lambda),
+  quad forall n >= 0
+$
+
+and recall that $lambda$ is a root of multiplicity 2 of the polynomial $P(z)$ if
+and only if $P(lambda) = 0$ and $P'(lambda) = 0$.
+
+#underline[Answer]
+
+Because $lambda$ is a root of multiplicity $2$ of $P(z)$
+
+$
+  P(z) = sum_(i=0)^k a_i z^i = g(z) (z - lambda)^2
+$
