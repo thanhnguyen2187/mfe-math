@@ -1080,7 +1080,7 @@ Where $C$ is an arbitrary constant, satistifes the recursion above.
 Hint: Show that
 
 $
-  sum_(i=1)^k a_i y_(n+i) = C_n lambda^n P(lambda) + C lambda^(n+1) P'(lambda),
+  sum_(i=1)^k a_i y_(n+i) = C n lambda^n P(lambda) + C lambda^(n+1) P'(lambda),
   quad forall n >= 0
 $
 
@@ -1092,5 +1092,45 @@ and only if $P(lambda) = 0$ and $P'(lambda) = 0$.
 Because $lambda$ is a root of multiplicity $2$ of $P(z)$
 
 $
-  P(z) = sum_(i=0)^k a_i z^i = g(z) (z - lambda)^2
+  P(z) &= (z - lambda)^2 Q(z) \
 $
+
+Where $Q(z)$ is some polynomial with $Q(lambda) != 0$. It's easily see that:
+
+$
+  P(lambda) &= (lambda - lambda)^2 Q(z) = 0 \
+$
+
+Using product rule:
+
+$
+  P'(z) &= d/(d z) [(z - lambda)^2 Q(z)] \
+        &= 2(z - lambda) Q(z) + (z - lambda)^2 Q'(z) \
+        &= (z - lambda)[2Q(z) + (z - lambda)Q'(z)] \
+  P'(lambda) &= (lambda - lambda)[2Q(lambda) + (lambda - lambda)Q'(z)] \
+             &= 0[2Q(lambda) + 0 (lambda - lambda)Q'(z)] \
+             &= 0
+$
+
+We then have
+
+$
+  P(z) &= sum_(i=0)^k a_i z^i \
+  P(lambda) &= sum_(i=0)^k a_i lambda^i = 0 \
+  P'(z) &= (sum_(i=0)^k a_i z^i)' = sum_(i=1)^k i a_i z^(i-1) \
+  P'(lambda) &= sum_(i=1)^k i a_i lambda^(i-1) = 0 \
+$
+
+Because $y_n &= C n lambda^n$ then $y_(n+i) &= C (n+i) lambda^(n+1)$ and
+
+$
+  sum_(i=0)^k a_i y_(n+i) &= sum_(i=0)^k a_i C(n+i) lambda^(n+i) \
+    &= C n sum_(i=0)^k a_i lambda^(n+i) + C sum_(i=0)^k i a_i lambda^(n+i) \
+    &= C n lambda^n sum_(i=0)^k a_i lambda^i + C lambda^(n+1) sum_(i=0)^k i a_i lambda^(i-1) \
+    &= C n lambda^n P(lambda) + C lambda^(n+1) P'(lambda) \
+    &= C n lambda^n times 0 + C lambda^(n+1) times 0 \
+    &= 0 \
+$
+
+Or $(y_n)_(n>=0)$ satisfies the linear recursion.
+
