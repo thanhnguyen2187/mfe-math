@@ -1134,3 +1134,71 @@ $
 
 Or $(y_n)_(n>=0)$ satisfies the linear recursion.
 
+#underline[Exercise 9]
+
+Let $n > 0$. Show that
+
+$
+  O(x^n) + O(x^n) = O(x^n), quad "as" x -> 0 \
+  o(x^n) + o(x^n) = o(x^n), quad "as" x -> 0 \
+$
+
+For example, to prove the first equation, let $f(x) = O(x^n)$, and $g(x) =
+O(x^n)$ as $x -> 0$, and show that $f(x) + g(x) = O(x^n)$ as $x -> 0$, i.e.,
+that
+
+$
+  limsup_(x->0) abs((f(x) + g(x))/x^n) < infinity
+$
+
+#underline[Answer]
+
+Let
+
+- $O(x^n) &= f(x)$ as $x -> 0$ iif $limsup_(x->0) abs(f(x)/x^n) < infinity$
+- $O(x^n) &= g(x)$ as $x -> 0$ iif $limsup_(x->0) abs(g(x)/x^n) < infinity$
+
+We have
+
+$
+  abs((f(x) + g(x)) / x^n) &<= abs(f(x) / x^n)  + abs(g(x) / x^n) \
+  limsup_(x->0) abs((f(x) + g(x)) / x^n) &<= limsup_(x->0) abs(f(x) / x^n)
+    + limsup_(x->0) abs(g(x) / x^n) < infinity \
+  limsup_(x->0) abs((f(x) + g(x)) / x^n) &< infinity \
+$
+
+Because
+
+$
+  limsup_(x->0) abs((f(x) + g(x))/x^n) < infinity <=> f(x) + g(x) = O(x^n) \
+  f(x) = O(x^n) \
+  g(x) = O(x^n) \
+$
+
+Therefore, $O(x^n) + O(x^n) = O(x^n)$.
+
+---
+
+Let
+
+- $o(x^n) &= h(x)$ as $x -> 0$ iif $limsup_(x->0) abs(h(x)/x^n) = 0$
+- $o(x^n) &= i(x)$ as $x -> 0$ iif $limsup_(x->0) abs(i(x)/x^n) = 0$
+
+We have
+
+$
+  abs((h(x) + i(x))/x^n) <= abs(h(x)/x^n) + abs(i(x)/x^n) \
+  lim_(x->0) abs((h(x) + i(x))/x^n) <= 0 \
+$
+
+Because
+
+$
+  abs((h(x) + i(x))/x^n) >= 0 \
+$
+
+Therefore,
+
+$
+  lim_(x->0) abs((h(x) + i(x))/x^n) = 0 <=> o(x^n) = h(x) + i(x)
+$
