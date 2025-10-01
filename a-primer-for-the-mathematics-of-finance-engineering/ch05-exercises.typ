@@ -1202,3 +1202,44 @@ Therefore,
 $
   lim_(x->0) abs((h(x) + i(x))/x^n) = 0 <=> o(x^n) = h(x) + i(x)
 $
+
+#underline[Supplemental Exercise 1]
+
+Let $a > 0$ be a positive number. Compute:
+
+$
+  sqrt(a + sqrt(a + sqrt(a + ...)))
+$
+
+#underline[Answer]
+
+Let $y = sqrt(a + sqrt(a + sqrt(a + ...))), y > 0$. It means
+
+$
+  y^2 &= a + sqrt(a + sqrt(a + ...)) \
+      &= a + y \
+  y^2 - y - a &= 0 \
+$
+
+Use quadratic formula:
+
+$
+  y = (-b plus.minus sqrt(b^2 - 4 a' c)) / (2a')
+$
+
+With:
+
+$
+  a' = 1 \
+  b = -1 \
+  c = -a \
+$
+
+Since $b^2 - 4 a' c = 1 + 4a > 0$, we have two roots:
+
+$
+  y_1 &= (1 + sqrt(1 + 4a)) / 2 \
+  y_2 &= (1 - sqrt(1 + 4a)) / 2 \
+$
+
+We easily see that $y_2 < 0$, so the only valid answer is $y_1$.
