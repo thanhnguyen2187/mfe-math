@@ -1,8 +1,9 @@
 // #set math.equation(numbering: "1.")
 
-= 05 Exercises
+#outline()
+#pagebreak()
 
-#underline[Exercise 1]
+== Exercise 1
 
 Let $f: bb(R) -> bb(R)$ be an odd function.
 
@@ -21,7 +22,7 @@ Let $f: bb(R) -> bb(R)$ be an odd function.
   are positive integers. When is $h(x)$ an odd function?
 ]
 
-#underline[Answer]
+== Answer
 
 $f(x)$ is an odd function, which means:
 
@@ -96,7 +97,7 @@ $
   - $h(x) = h(x)$ or $h(x)$ is an even function, when $i + j$ is even
 ]
 
-#underline[Exercise 2]
+== Exercise 2
 
 Let
 
@@ -155,7 +156,7 @@ Let
   1)$ and conclude that $S(n, 3) = ((n(n + 1)) / 2)^2$.
 ]
 
-#underline[Answer]
+== Answer
 
 #enum(numbering: "i)")[
   // Replacing @e2-eq2 into @e2-eq1, we have:
@@ -605,7 +606,7 @@ Let
   $
 ]
 
-#underline[Exercise 3]
+== Exercise 3
 
 Compute $S(n, 4) = sum_(k = 1)^n k^4$ using the recursion formula
 
@@ -621,7 +622,7 @@ $
   vec(i + 1, j) = (i + 1)! / (j! (i + 1 - j)!)
 $
 
-#underline[Answer]
+== Answer
 
 $
   S(n, i)
@@ -656,7 +657,7 @@ $
     &= (n(n + 1)(6n^3 + 9n^2 + n - 1)) / 30 quad square
 $
 
-#underline[Exercise 4]
+== Exercise 4
 
 It's easy to see that the sequence $(x_n)_(n >= 1)$ given by $x_n = sum_(k=1)^n
 k^2$ satisfies the recursion
@@ -723,7 +724,7 @@ with $x_1 = 1$
   $
 ]
 
-#underline[Answer]
+== Answer
 
 #enum(numbering: "i)")[
   $
@@ -824,7 +825,7 @@ with $x_1 = 1$
   $
 ]
 
-#underline[Exercise 5]
+== Exercise 5
 
 Find the general form of the sequence $x(n)_(n>=0)$ satisfiying the linear
 recursion
@@ -835,7 +836,7 @@ $
 
 With $x_0 = 1$, $x_1 = -1$ and $x_2 = 1$
 
-#underline[Answer]
+== Answer
 
 $
   x_(n+3) = 2x_(n+1) + x_n
@@ -890,7 +891,7 @@ $
   quad square
 $
 
-#underline[Exercise 6]
+== Exercise 6
 
 The sequence $(x_n)_(n>=0)$ satisfies the recursion
 
@@ -912,7 +913,7 @@ with $x_0 = 1$.
   Find the general formula for $x_n, n >= 0$.
 ]
 
-#underline[Answer]
+== Answer
 
 #enum(numbering: "i)")[
   Replacing $n+2$ into $x_(n+1)$, we have
@@ -971,7 +972,7 @@ with $x_0 = 1$.
   $
 ]
 
-#underline[Exercise 7]
+== Exercise 7
 
 The sequence $(x_n)_(n>=0)$ satisfies the recursion
 
@@ -993,7 +994,7 @@ with $x_0 = 1$.
   Find the general formula for $x_n$, $n >= 0$.
 ]
 
-#underline[Answer]
+== Answer
 
 #enum(numbering: "i)")[
   $
@@ -1059,7 +1060,7 @@ with $x_0 = 1$.
   $
 ]
 
-#underline[Exercise 8]
+== Exercise 8
 
 Let $P(z) = sum_(i=0)^k a_i z^i$ be the characteristic polynomial corresponding
 to the linear recursion
@@ -1087,7 +1088,7 @@ $
 and recall that $lambda$ is a root of multiplicity 2 of the polynomial $P(z)$ if
 and only if $P(lambda) = 0$ and $P'(lambda) = 0$.
 
-#underline[Answer]
+== Answer
 
 Because $lambda$ is a root of multiplicity $2$ of $P(z)$
 
@@ -1134,7 +1135,7 @@ $
 
 Or $(y_n)_(n>=0)$ satisfies the linear recursion.
 
-#underline[Exercise 9]
+== Exercise 9
 
 Let $n > 0$. Show that
 
@@ -1151,7 +1152,7 @@ $
   limsup_(x->0) abs((f(x) + g(x))/x^n) < infinity
 $
 
-#underline[Answer]
+== Answer
 
 Let
 
@@ -1203,7 +1204,116 @@ $
   lim_(x->0) abs((h(x) + i(x))/x^n) = 0 <=> o(x^n) = h(x) + i(x)
 $
 
-#underline[Supplemental Exercise 1]
+== Exercise 10
+
+Prove that
+
+$
+  sum_(k=1)^n k^2 = O(n^3), "as" n -> oo; \
+  sum_(k=1)^n k^2 = n^3/3 + O(n^2), "as" n -> oo; \
+$
+
+i.e., show that
+
+$
+  limsup_(n->oo) (sum_(k=1)^n k^2)/(n^3) < oo \
+$
+
+and that
+
+$
+  limsup_(n->oo) (sum_(k=1)^n k^2 - n^3/3)/(n^2) < oo \
+$
+
+Similarly, prove that
+
+$
+  sum_(k=1)^n k^3 = O(n^4), "as" n -> oo; \
+  sum_(k=1)^n k^3 = n^4/4 + O(n^3), "as" n -> oo; \
+$
+
+== Answer
+
+Because
+
+$
+  sum_(k=1)^n k^2
+    &= (n(n+1)(2n+1)) / 6 \
+    &= ((n^2 + n)(2n + 1)) / 6 \
+    &= ((2n^3 + 2n^2) + (n^2 + n)) / 6 \
+    &= (2n^3 + 3n^2 + n) / 6 \
+    &= n^3/3 + n^2/2 + n/6 \
+$
+
+Then
+
+$
+  limsup_(n->oo) abs((sum_(k=1)^n k^2)/n^3)
+    &= limsup_(n->oo) abs((n^3/3 + n^2/2 + n/6)/n^3) \
+    &= limsup_(n->oo) abs(1/3 + 1/(2n) + 1/(6n^2)) \
+    &= 1/3 < oo \
+    \
+  limsup_(n->oo) abs((sum_(k=1)^n k^2)/n^3) &< oo <=> sum_(k=1)^n k^2 = O(n^3)
+$
+
+Also, we have
+
+$
+  limsup_(n->oo) abs((sum_(k=1)^n k^2 - n^3/3)/n^2)
+    &= limsup_(n->oo) abs((n^3/3 + n^2/2 + n/6 - n^3/3)/n^2) \
+    &= limsup_(n->oo) abs((n^2/2 + n/6)/n^2) \
+    &= limsup_(n->oo) abs(1/2 + 1/(6n)) \
+    &= 1/3 < oo \
+$
+
+$
+  limsup_(n->oo) abs((sum_(k=1)^n k^2 - n^3/3)/n^2) < oo
+    <=> sum_(k=1)^n k^2 - n^3/3 &= O(n^2) \
+    sum_(k=1)^n k^2 &= O(n^2) + n^3/3
+$
+
+For $sum_(k=1)^n k^3$, because
+
+$
+  sum_(k=1)^n k^3
+    &= (n(n+1)/2)^2 \
+    &= (n^2(n+1)^2)/4 \
+    &= (n^2(n^2 + 2n + 1))/4 \
+    &= (n^4 + 2n^3 + n^2)/4 \
+    &= n^4/4 + n^3/2 + n^2/4 \
+$
+
+Then
+
+$
+  limsup_(n->oo) abs((sum_(k=1)^n k^3)/n^4)
+    &= limsup_(n->oo) abs((n^4/4 + n^3/2 + n^2/4)/n^4) \
+    &= limsup_(n->oo) abs(1/4 + 1/(2n) + 1/(4n^2)) \
+    &= 1/4 < oo \
+  \
+$
+
+$
+  limsup_(n->oo) abs((sum_(k=1)^n k^3)/n^4) &< oo <=> sum_(k=1)^n k^3 = O(n^4)
+$
+
+$
+  limsup_(n->oo) abs((sum_(k=1)^n k^3 - n^4/4)/n^4)
+    &= limsup_(n->oo) abs((n^4/4 + n^3/2 + n^2/4 - n^4/4)/n^4) \
+    &= limsup_(n->oo) abs((n^3/2 + n^2/4)/n^4) \
+    &= limsup_(n->oo) abs(1/(2n) + 1/(4n^2)) \
+    &= 1/2 < oo \
+  \
+$
+
+$
+  limsup_(n->oo) abs((sum_(k=1)^n k^3 - n^4/4)/n^4) < oo
+  <=> sum_(k=1)^n k^2 - n^4/4 = O(n^3) \
+  sum_(k=1)^n k^2 = n^4/4 + O(n^3) quad qed
+$
+
+
+== Supplemental Exercise 1
 
 Let $a > 0$ be a positive number. Compute:
 
@@ -1211,7 +1321,7 @@ $
   sqrt(a + sqrt(a + sqrt(a + ...)))
 $
 
-#underline[Answer]
+== Answer
 
 Let $y = sqrt(a + sqrt(a + sqrt(a + ...))), y > 0$. It means
 
