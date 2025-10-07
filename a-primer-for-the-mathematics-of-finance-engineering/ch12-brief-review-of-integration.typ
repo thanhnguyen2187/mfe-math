@@ -50,6 +50,170 @@ $
 _Examples_:
 
 $
-  integral ln(1 + x)d x = 
+  integral ln(1 + x)d x
+    &= integral ln(1 + x) thin 1 thin d x \
 $
 
+Apply the Integral by parts formula:
+
+$
+  integral f(x) g(x) = F(x) g(x) - integral F(x) g'(x) d x \
+$
+
+With 
+
+$
+  f(x)  &= 1 \
+  F(x)  &= x \
+  g(x)  &= ln(1 + x) \
+  g'(x) &= 1/(1 + x) \
+$
+
+$
+  integral ln(1 + x)d x
+    &= x ln(1 + x) - integral x/(1 + x) d x \
+    &= x ln(1 + x) - integral 1 - 1/(1 + x) d x \
+    &= x ln(1 + x) - integral d x + integral 1/(1 + x) d x \
+    &= x ln(1 + x) - x + ln(1 + x) + C \
+    &= (1 + x) ln(1 + x) - x + C \
+$
+
+---
+
+$
+  integral_1^3 x e^x d x
+$
+
+Apply Integration by parts formula:
+
+$
+  integral_a^b f(x)g(x)d x = F(x)g(x)|_a^b - integral_a^b F(x)g'(x)d x
+$
+
+With
+
+$
+  a &= 1 \
+  b &= 3 \
+  f(x) &= e^x \
+  g(x) &= x \
+  F(x) &= e^x \
+  g'(x) &= 1 \
+$
+
+We have
+
+$
+  F(x)g(x)|_a^b &= x e^x |_1^3 \
+    &= 3 e^3 - e \
+  integral_a^b F(x)g'(x)d x &= integral_1^3 e^x d x \
+    &= e^x |_1^3 \
+    &= e^3 - e \
+$
+
+$
+  integral_1^3 x e^x d x = (3e^3 - e) - (e^3 - e) = 2e^3
+$
+
+---
+
+$
+  integral x^2 ln(x) d x
+$
+
+Apply Integration by parts formula:
+
+$
+  integral f(x)g(x)d x = F(x)g(x) - integral F(x)g'(x)d x
+$
+
+With
+
+$
+  f(x)  &= x^2 \
+  g(x)  &= ln(x) \
+  F(x)  &= x^3 / 3 \
+  g'(x) &= 1/x \
+  \
+  F(x)g(x) &= x^3/3 dot ln(x) \
+    &= (x^3 ln(x))/3 \
+  integral F(x)g'(x)d x &= integral x^3/3 dot 1/x dot d x \
+    &= 1/3 integral x^2 d x \
+    &= 1/9 x^3 + C \
+$
+
+$
+  integral x^2 ln(x) d x
+    &= (x^3 ln(x))/3 - 1/9 x^3 - C \
+    &= x^3/3 (ln(x) - 1/3) - C \
+$
+
+---
+
+$
+  integral e^(sqrt(x))/sqrt(x) d x
+$
+
+Apply integration by substitution formula:
+
+$
+  integral f(x) d x = integral f(g(u)) g'(u) d u
+$
+
+With
+
+$
+  u &= sqrt(x) \
+  d u &= (sqrt(x))' d x = (d x)/sqrt(x) \
+  integral e^(sqrt(x))/sqrt(x) d x &= integral e^u d u = e^u + C = e^(sqrt(x)) + C
+$
+
+---
+
+$
+  integral_(-1)^0 x^2(x^3 - 1)^4 d x
+$
+
+Let
+
+$
+  u = x^3 - 1
+  d u = 3x^2 d x
+$
+
+Then with
+
+$
+  x = -1 &quad u = -2 \
+  x = 0 &quad u = -1 \
+$
+
+$
+  integral_(-1)^0 x^2(x^3 - 1)^4 d x
+    &= 1/3 integral_(-1)^0 (x^3 - 1)^4 3x^2 d x \
+    &= 1/3 integral_(-2)^(-1) u^4 d u \
+    &= 1/3 lr(u^5 / 5 mid(|))_(-2)^(-1) \
+    &= 1/15 lr(u^5 mid(|))_(-2)^(-1) \
+    &= 1/15 ((-1)^5 - (-2)^5) \
+    &= 31/15 \
+$
+
+---
+
+$
+  integral (e^x + e^(-x))/(e^x - e^(-x)) d x
+$
+
+Let
+
+$
+  u   &= e^x - e^(-x) \
+  d u &= (e^x - e^(-x))' d x = (e^x + e^(-x)) d x \
+$
+
+$
+  integral (e^x + e^(-x))/(e^x - e^(-x)) d x
+    &= integral 1 / u d u \
+    &= ln(u) + C \
+    &= ln(e^x - e^(-x)) + C \
+$
