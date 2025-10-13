@@ -176,7 +176,7 @@ $
   D F(x) = vec(
     D f_1(x),
     D f_2(x),
-    dots.down,
+    dots.v,
     D f_m(x),
   )
 $
@@ -245,3 +245,81 @@ $
   )
 $
 
+_Example_
+
+Let $f(x, y) = x^2 y^3 + e^(2x + x y - 1) - (x^3 + 3y^2)^2$. Evaluate the
+gradient and the Hessian of $f(x, y)$ at the point $(0, 0)$.
+
+---
+
+We have
+
+$
+  (partial f)/(partial x)(x, y)
+    &= (partial f)/(partial x)(x^2 y^3 + e^(2x + x y - 1) - (x^3 + 3y^2)^2) \
+    &= (partial f)/(partial x)(x^2 y^3) + (partial f)/(partial x)(2x + x y - 1)e^(2x + x y - 1) - 2(x^3 + 3y^2)(partial f)/(partial x)(x^3 + 3y^2) \
+    &= (2x y^3) + (2 + y)e^(2x + x y - 1) - 2(x^3+3y^2) dot 3x^2 \
+    &= 2x y^3 + (2 + y)e^(2x + x y - 1) - 6x^2 (x^3+3y^2) \
+$
+$
+  (partial^2 f)/(partial x^2)(x, y)
+    &= (partial f)/(partial x)((partial f)/(partial x)(x, y)) \
+    &= (partial f)/(partial x)(2x y^3 + (2 + y)e^(2x + x y - 1) - 6x^2 (x^3+3y^2)) \
+    &= (partial f)/(partial x)(2x y^3)
+      + (partial f)/(partial x)((2 + y)e^(2x + x y - 1))
+      - (partial f)/(partial x)(6x^2 (x^3+3y^2)) \
+    &= (2y^3) + ((2 + y)^2 e^(2x + x y - 1))
+      - (12x(x^3 + 3y^2) + 6x^2 dot 3x^2) \
+    &= 2y^3 + (2 + y)^2 e^(2x + x y - 1)
+      - (6x(2x^3 + 6y^2) + 6x dot 3x^3) \
+    &= 2y^3 + (2 + y)^2 e^(2x + x y - 1)
+      - 6x(5x^3 + 6y^2) \
+$
+$
+  (partial^2 f)/(partial y x)(x, y)
+    &= (partial f)/(partial y)((partial f)/(partial x)(x, y)) \
+    &= (partial f)/(partial y)(2x y^3 + (2 + y)e^(2x + x y - 1) - 6x^2 (x^3+3y^2)) \
+    &= (partial f)/(partial y)(2x y^3)
+      + (partial f)/(partial y)[(2 + y)e^(2x + x y - 1)]
+      - (partial f)/(partial y)(6x^2 (x^3+3y^2)) \
+    &= (6x y^2) + [e^(2x + x y + 1) + (2 + y)x e^(2x + x y + 1)] - 6x^2 dot 6y \
+    &= 6x y^2 + (3 + y)x e^(2x + x y + 1) - 36x^2 y \
+$
+$
+  (partial f)/(partial y)(x, y)
+    &= (partial f)/(partial y)(x^2 y^3 + e^(2x + x y - 1) - (x^3 + 3y^2)^2) \
+    &= (partial f)/(partial y)(x^2 y^3)
+      + (partial f)/(partial y)(e^(2x + x y - 1))
+      + (partial f)/(partial y)((x^3 + 3y^2)^2) \
+    &= (3 x^2 y^2) + x e^(2x + x y - 1) - 2(x^3 + 3y^2) dot 6y \
+    &= 3 x^2 y^2 + x e^(2x + x y - 1) - 12y (x^3 + 3y^2) \
+$
+$
+  (partial^2 f)/(partial x y)(x, y)
+    &= (partial f)/(partial x)((partial f)/(partial y)) \
+    &= (partial f)/(partial x)(3 x^2 y^2 + x e^(2x + x y - 1) - 12y (x^3 + 3y^2)) \
+    &= (partial f)/(partial x)(3 x^2 y^2) 
+      + (partial f)/(partial x)(x e^(2x + x y - 1)) 
+      - (partial f)/(partial x)(12y (x^3 + 3y^2)) \
+    &= (6x y^2) + [e^(2x + x y - 1) + x(2 + y)e^(2x + x y - 1)] - 12y dot 3x^2 \
+    &= 6x y^2 + (1 + 2x + x y)e^(2x + x y - 1) - 36 x^2 y \
+$
+$
+  (partial^2 f)/(partial y^2)(x, y)
+    &= (partial f)/(partial y)((partial f)/(partial y)) \
+    &= (partial f)/(partial y)(3 x^2 y^2 + x e^(2x + x y - 1) - 12y (x^3 + 3y^2)) \
+    &= (partial f)/(partial y)(3 x^2 y^2) 
+      + (partial f)/(partial y)(x e^(2x + x y - 1)) 
+      - (partial f)/(partial y)(12y (x^3 + 3y^2)) \
+    &= (6x^2 y) + (x^2 e^(2x + x y - 1)) - 12[(x^3 + 3y^2) + y dot 6y] \
+    &= 6x^2 y + x^2 e^(2x + x y - 1) - 12(x^3 + 9y^2) \
+$
+
+The gradient of $f(x, y)$ is
+
+$
+  D f(x, y)
+    &= ((partial f)/(partial x)(x, y) thick (partial f)/(partial y)(x, y)) \
+    &= ((2x y^3 + (2 + y)e^(2x + x y - 1) - 6x^2 (x^3+3y^2))
+      thick (3 x^2 y^2 + x e^(2x + x y - 1) - 12 (x^3 + 3y^2) y^2)) \
+$
