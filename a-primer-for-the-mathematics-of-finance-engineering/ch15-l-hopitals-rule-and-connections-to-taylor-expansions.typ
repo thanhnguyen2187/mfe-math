@@ -1,4 +1,4 @@
-= L'Hopital's rule and connections to Taylor expansions
+= 1.5 L'Hopital's rule and connections to Taylor expansions
 
 L'Hopital's rule is a method to compute limits when direct computation would
 give an undefined result of form $0/0$. Informally
